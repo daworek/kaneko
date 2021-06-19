@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kaneko/security_quiz.dart';
 
 void main() {
   runApp(MyApp());
@@ -91,8 +92,8 @@ class _HomePageState extends State<HomePage> {
                         margin: EdgeInsets.all(10),
                         child: ElevatedButton(
                           style: smallButtonStyle,
-                          onPressed: () {},
-                          child: Text("Moje Quizy"),
+                          onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (builder) => SecurityQuiz())); },
+                          child: Text("Moje quizy"),
                         ),
                       ),
                     ],
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                                 height: 2),
                           ),
                           Text(
-                            'transakacja 1\ntransakacja 2\ntransakacja 3\ntransakacja 4\ntransakacja 5',
+                            'transakacja 1\ntransakacja 2\ntransakacja 3\ntransakacja 4',
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -161,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                                 height: 2),
                           ),
                           Text(
-                            'transakacja 1\ntransakacja 2\ntransakacja 3\ntransakacja 4\ntransakacja 5',
+                            'transakacja 1\ntransakacja 2\ntransakacja 3\ntransakacja 4',
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -195,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                 height: 2),
                           ),
                           Text(
-                            'transakacja 1\ntransakacja 2\ntransakacja 3\ntransakacja 4\ntransakacja 5',
+                            'transakacja 1\ntransakacja 2\ntransakacja 3\ntransakacja 4',
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
