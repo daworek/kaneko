@@ -8,7 +8,9 @@ class SecurityQuiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'KANEKO',
-      home: SecurityQuizPage(title: "KANEKO Quiz o bezpieczeństwie",),
+      home: SecurityQuizPage(
+        title: "KANEKO Quiz o bezpieczeństwie",
+      ),
     );
   }
 }
@@ -24,8 +26,10 @@ class SecurityQuizPage extends StatefulWidget {
 
 class _SecurityQuizPageState extends State<SecurityQuizPage> {
   int question = 1;
+  int goldfish_count = 0;
 
-  Future<void> _showDialog(Text title, Text subtitle, Text content, void Function() dismissed) async {
+  Future<void> _showDialog(Text title, Text subtitle, Text content,
+      void Function() dismissed) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -63,20 +67,25 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
 
   void _onGivenPassword() {
     _showDialog(
-      Text("Wprowadziłeś swoje hasło! Pomyłka!", style: TextStyle(color: Colors.red)),
-      Text("Nigdy nie podawaj swojego hasła!", style: TextStyle(color: Colors.red)),
-      Text("Twoje hasło jest bezpieczne, ale pamiętaj żeby nikomu go nie podawać. PKO BP nigdy Cię o nie nie poprosi."),
-      _showQuestion2
-    );
+        Text("Wprowadziłeś swoje hasło! Pomyłka!",
+            style: TextStyle(color: Colors.red)),
+        Text("Nigdy nie podawaj swojego hasła!",
+            style: TextStyle(color: Colors.red)),
+        Text(
+            "Twoje hasło jest bezpieczne, ale pamiętaj żeby nikomu go nie podawać. PKO BP nigdy Cię o nie nie poprosi."),
+        _showQuestion2);
   }
 
   void _onNotGivenPassword() {
+    goldfish_count++;
     _showDialog(
-        Text("Nie podałeś swojego hasła! Dobrze!", style: TextStyle(color: Colors.green)),
-        Text("Nigdy nie podawaj swojego hasła!", style: TextStyle(color: Colors.red)),
-        Text("Gratulajce! Dobra odpowiedź. Pamiętaj, że PKO BP nigdy Cię o nie nie poprosi.."),
-        _showQuestion2
-    );
+        Text("Nie podałeś swojego hasła! Dobrze!",
+            style: TextStyle(color: Colors.green)),
+        Text("Nigdy nie podawaj swojego hasła!",
+            style: TextStyle(color: Colors.red)),
+        Text(
+            "Gratulajce! Dobra odpowiedź. Pamiętaj, że PKO BP nigdy Cię o nie nie poprosi.."),
+        _showQuestion2);
   }
 
   void _showQuestion2() {
@@ -88,19 +97,21 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
   void _onLinkTap() {
     _showDialog(
         Text("Kliknąłeś w link! Pomyłka!", style: TextStyle(color: Colors.red)),
-        Text("Nie klikaj w podejrzane linki udające prawdziewe!", style: TextStyle(color: Colors.red)),
+        Text("Nie klikaj w podejrzane linki udające prawdziewe!",
+            style: TextStyle(color: Colors.red)),
         Text("Adres strony PKO BP to www.pkobp.pl"),
-        _showQuestion3
-    );
+        _showQuestion3);
   }
 
   void _onNotLinkTap() {
+    goldfish_count++;
     _showDialog(
-        Text("Nie kilknąłeś w link! Dobra robota!", style: TextStyle(color: Colors.green)),
-        Text("Nie klikaj w podejrzane linki udające prawdziewe!", style: TextStyle(color: Colors.red)),
+        Text("Nie kilknąłeś w link! Dobra robota!",
+            style: TextStyle(color: Colors.green)),
+        Text("Nie klikaj w podejrzane linki udające prawdziewe!",
+            style: TextStyle(color: Colors.red)),
         Text("Adres strony PKO BP to www.pkobp.pl"),
-        _showQuestion3
-    );
+        _showQuestion3);
   }
 
   void _showQuestion3() {
@@ -110,10 +121,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
   }
 
   void _closeQuiz() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MyApp())
-    );
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
   }
 
   @override
@@ -132,8 +140,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
                 style: TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
-                    fontSize: 40
-                ),
+                    fontSize: 40),
               ),
             ),
             SizedBox(
@@ -142,10 +149,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
             Text(
               'Pytanie 1',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic
-              ),
+              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
             ),
             SizedBox(
               height: 50,
@@ -154,32 +158,29 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
               'Aby rozpocząć, podaj swoje hasło:',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 18,
+                fontSize: 18,
               ),
             ),
             SizedBox(
               height: 50,
             ),
             Container(
-              margin: const EdgeInsets.all(30.0),
+                margin: const EdgeInsets.all(30.0),
                 child: TextField(
-                    obscureText: true,
-                )
-            ),
+                  obscureText: true,
+                )),
             SizedBox(
               height: 50,
             ),
             ElevatedButton(
                 onPressed: _onGivenPassword,
-                child: Text("Ok, następne pytanie")
-            ),
+                child: Text("Ok, następne pytanie")),
             SizedBox(
               height: 50,
             ),
             ElevatedButton(
                 onPressed: _onNotGivenPassword,
-                child: Text("Nie, nie podam swojego hasła")
-            )
+                child: Text("Nie, nie podam swojego hasła"))
           ],
         ),
       );
@@ -195,8 +196,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
                 style: TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
-                    fontSize: 40
-                ),
+                    fontSize: 40),
               ),
             ),
             SizedBox(
@@ -205,10 +205,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
             Text(
               'Pytanie 2',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic
-              ),
+              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
             ),
             SizedBox(
               height: 50,
@@ -223,26 +220,21 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
             Linkify(
                 text: "www.bank-pkobp.pl",
                 style: TextStyle(
-                    fontSize: 18,
+                  fontSize: 18,
                 ),
-                onOpen: (link) => {
-                  _onLinkTap()
-                }
-            ),
+                onOpen: (link) => {_onLinkTap()}),
             SizedBox(
               height: 50,
             ),
             ElevatedButton(
                 onPressed: _onLinkTap,
-                child: Text("Ok, przejdź do tej strony")
-            ),
+                child: Text("Ok, przejdź do tej strony")),
             SizedBox(
               height: 50,
             ),
             ElevatedButton(
                 onPressed: _onNotLinkTap,
-                child: Text("Nie, nie otworzę tego linku")
-            )
+                child: Text("Nie, nie otworzę tego linku"))
           ],
         ),
       );
@@ -258,8 +250,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
                 style: TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
-                    fontSize: 40
-                ),
+                    fontSize: 40),
               ),
             ),
             SizedBox(
@@ -268,35 +259,46 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
             Text(
               'Gratulacje za ukończenie quizu!',
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Twoja liczba rybek za ten quiz: $goldfish_count',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic
+                fontSize: 21,
+              ),
+            ),
+            Container(
+              height: 400.0,
+              width: 400.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  alignment: Alignment.center,
+                  image: AssetImage('/images/rybka.png'),
+                ),
               ),
             ),
             Text(
               'Regularnie będziemy proponować Ci przystąpienie do takiego quizu.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 18,
+                fontSize: 18,
               ),
             ),
             SizedBox(
               height: 50,
             ),
             Linkify(
-                text: "A w międzyczasie możesz poczytać o bezpieczństwie w sieci tutaj: www.pkobp.pl",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontStyle: FontStyle.italic
-                )
-            ),
+                text:
+                    "A w międzyczasie możesz poczytać o bezpieczństwie w sieci tutaj: www.pkobp.pl",
+                style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic)),
             SizedBox(
               height: 50,
             ),
-            ElevatedButton(
-                onPressed: _closeQuiz,
-                child: Text("Zamknij quiz")
-            )
+            ElevatedButton(onPressed: _closeQuiz, child: Text("Zamknij quiz"))
           ],
         ),
       );
