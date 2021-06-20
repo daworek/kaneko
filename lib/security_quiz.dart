@@ -161,7 +161,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
               height: 50,
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 20.0),
+              margin: const EdgeInsets.all(30.0),
                 child: TextField(
                     obscureText: true,
                 )
