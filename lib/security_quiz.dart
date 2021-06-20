@@ -7,6 +7,7 @@ class SecurityQuiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'KANEKO',
       home: SecurityQuizPage(
         title: "KANEKO Quiz o bezpieczeństwie",
@@ -141,6 +142,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
                     fontSize: 40),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(
@@ -197,6 +199,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
                     fontSize: 40),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(
@@ -251,6 +254,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
                     fontSize: 40),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(
