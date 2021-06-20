@@ -221,12 +221,18 @@ class _HomePageState extends State<HomePage> {
                   FloatingActionButton.extended(
                     backgroundColor: const Color(0xff03dac6),
                     foregroundColor: Colors.white,
-                    onPressed: () {},
+                    onPressed:  () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => BubbleScreen()));
+                },
                     icon: Icon(Icons.more_horiz),
                     label: Text('NEKO'),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed:  () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => BubbleScreen()));
+                },
                     icon: Image.asset('/images/kotek_glowa.png'),
                     iconSize: 100.0,
                   ),
