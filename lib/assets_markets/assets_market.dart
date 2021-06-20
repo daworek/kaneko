@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'package:kaneko/assets_markets/crypto_market.dart';
 import 'package:kaneko/assets_markets/stock_market.dart';
 
 abstract class Asset {
@@ -21,16 +20,18 @@ abstract class AssetsMarket {
 }
 
 class AssetsMarkets {
-  static final AssetsMarkets _assetsMarkets = new AssetsMarkets();
-  static final Map<String, AssetsMarket> _availableAssetsMarkets = new Map();
+  static final AssetsMarkets _assetsMarkets = new AssetsMarkets._init();
+  final Map<String, AssetsMarket> _availableAssetsMarkets = new Map();
 
   factory AssetsMarkets() {
     return _assetsMarkets;
   }
 
-  AssetsMarkets._() {
+  AssetsMarkets._init() {
     var stockMarket = new StockMarket();
     _availableAssetsMarkets[stockMarket.getName()] = stockMarket;
+    var cryptoMarket = new CryptoMarket();
+    _availableAssetsMarkets[cryptoMarket.getName()] = cryptoMarket;
   }
 
   Iterable<AssetsMarket> getAvailableAssetsMarkets() {

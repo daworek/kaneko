@@ -1,5 +1,9 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:kaneko/investing_playground.dart';
 import 'package:kaneko/security_quiz.dart';
+
+import 'chat.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,6 +36,7 @@ class _HomePageState extends State<HomePage> {
           side: BorderSide(color: Colors.transparent)),
     );
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
         backgroundColor: Color(0xff03dac6),
@@ -83,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                         margin: EdgeInsets.all(10),
                         child: ElevatedButton(
                           style: smallButtonStyle,
-                          onPressed: () {},
+                          onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (builder) { return InvestingPlayground(); })); },
                           child: Text("Inwestycje"),
                         ),
                       ),

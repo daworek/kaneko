@@ -303,6 +303,7 @@ class _SecurityQuizPageState extends State<SecurityQuizPage> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(widget.title),
       ),
